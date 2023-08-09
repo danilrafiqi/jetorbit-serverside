@@ -15,8 +15,6 @@ RUN yarn build
 # Prepare nginx
 FROM nginx:1.24.0-alpine
 COPY --from=build /app/.next /usr/share/nginx/html
-# RUN rm /etc/nginx/conf.d/default.conf
-COPY app/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Fire up nginx
 EXPOSE 80
